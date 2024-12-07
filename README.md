@@ -35,4 +35,3 @@ final_project/
 ├── README.md
 └── mycli.js
 
-REDACTED
