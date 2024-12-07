@@ -2,6 +2,8 @@
 
 Welcome to **Jules and Moyo's MyCLI**, a command-line interface tool for performing various tasks interactively or through direct commands.
 
+test
+
 ---
 
 ## Features
@@ -32,3 +34,5 @@ final_project/
 ├── poems.json
 ├── README.md
 └── mycli.js
+
+REDACTED
