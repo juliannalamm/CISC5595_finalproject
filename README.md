@@ -45,10 +45,9 @@ Welcome to **Jules and Moyo's MyCLI**, a command-line interface tool for perform
 ## File Structure
 final_project/
 ├── bin/
+│   └── index.js
 ├── node_modules/
 ├── package.json
 ├── package-lock.json
 ├── poems.json
-├── README.md
-└── mycli.js
-
+└── README.md
