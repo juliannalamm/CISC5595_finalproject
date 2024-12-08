@@ -18,8 +18,8 @@ try {
 }
 
 
-console.log(chalk.magenta("Welcome to MyCLI!"));
-console.log(chalk.blue("Launching interactive mode... Type 'mycli help' for more commands."));
+console.log(chalk.magenta("Welcome to Jules' and Moyo's CLI!"));
+console.log(chalk.blue("Type 'mycli help' for more commands or 'mycli' for interactive mode"));
 
 function mycliManual() {
   console.log(`
@@ -167,7 +167,8 @@ function launchInteractive() {
           "Print our favorite poetry and excerpts",
           "List files", 
           "Print working directory",
-          "Get CPU Usage", 
+          "Get CPU Usage",
+          "Change directory", 
           "Calculate expression",
           "Help", 
           "Exit"],
@@ -175,14 +176,49 @@ function launchInteractive() {
       ])
       .then((answers) => {
         switch (answers.action) {
-          //LIST FILES
+          case "Print working directory":
+            try {
+                const currentDir = process.cwd(); // Get current working directory
+                console.log(chalk.green(`Current working directory:`));
+                console.log(chalk.blueBright(currentDir))
+            } catch (error) {
+                console.log(chalk.red(`Failed to fetch working directory: ${error.message}`));
+            }
+            
+            launchInteractive(); // Relaunch the interactive menu
+            break;
+            
           case "List files":
             exec("ls", (err, stdout) => {
-              console.log(err ? chalk.red(err) : stdout);
-              launchInteractive();
-            });
-            break;
-
+              if (err) {
+                console.error(chalk.red(`Error: ${err.message}`));
+              } else {
+                console.log(stdout);
+              }
+              launchInteractive(); // Show menu again
+              });
+              break;
+          case "Change directory":
+            inquirer
+              .prompt([
+                {
+                  type: "input",
+                  name: "directory",
+                  message: "Enter the directory path to navigate to:",
+                  default: process.cwd(), // Default to the current working directory
+                },
+              ])
+              .then((response) => {
+                const dir = response.directory;
+                try {
+                  process.chdir(dir); // Change to the new directory
+                  console.log(chalk.green(`Successfully changed directory to: ${process.cwd()}`));
+                } catch (error) {
+                  console.log(chalk.red(`Failed to change directory: ${error.message}`));
+                }
+                launchInteractive(); // Relaunch the interactive menu
+                });
+              break;
           // GET CPU USAGE
           case "Get CPU Usage":
             const usage = process.cpuUsage();
@@ -191,7 +227,7 @@ function launchInteractive() {
             console.log(chalk.blueBright(`System CPU time: ${usage.system / 1000}ms`));
             launchInteractive();
             break;
-          
+          // PRINT POETRY
           case "Print our favorite poetry and excerpts":
             if (poems.length === 0) {
               console.log(chalk.red("No poems available to display."));
