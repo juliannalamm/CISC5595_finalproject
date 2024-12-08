@@ -1,6 +1,6 @@
 # MyCLI Project
 
-Welcome to **Jules and Moyo's MyCLI**, a command-line interface tool for performing various tasks interactively or through direct commands.
+Welcome to **Julianna and Moyo's MyCLI**, a command-line interface tool for performing various tasks interactively or through direct commands.
 
 ---
 
