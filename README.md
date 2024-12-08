@@ -27,7 +27,7 @@ Welcome to **Jules and Moyo's MyCLI**, a command-line interface tool for perform
 
 3. Navigate to the project directory 
    ```bash
-   cd repository-name
+   cd CISC5595_finalproject
 
 4. Install dependencies
    ```bash
