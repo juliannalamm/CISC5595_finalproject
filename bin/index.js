@@ -20,8 +20,9 @@ try {
 
 console.log(chalk.magenta("Welcome to Jules' and Moyo's CLI!"));
 console.log(chalk.green(`Select 'Help' for a list of commands.
-To use functionalities in non-interactive mode, select 'Exit' and type 'mycli <command>'
-You can always return to interactive menu by typing 'mycli'!`));
+To use functionalities in non-interactive mode, 
+select 'Exit' and type 'mycli <command>'
+You can always return to the interactive menu by typing 'mycli'!`));
 
 function mycliManual() {
   console.log(`
