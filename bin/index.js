@@ -19,12 +19,14 @@ try {
 
 
 console.log(chalk.magenta("Welcome to Jules' and Moyo's CLI!"));
-console.log(chalk.blue("Type 'mycli help' for more commands or 'mycli' for interactive mode"));
+console.log(chalk.green(`Select 'Help' for a list of commands.
+To use functionalities in non-interactive mode, select 'Exit' and type 'mycli <command>'
+You can always return to interactive menu by typing 'mycli'!`));
 
 function mycliManual() {
   console.log(`
-    Welcome to Moyo and Jules' CLI! Below is a brief overview of the commands you can use.
-    
+    Welcome to Moyo and Julianna's CLI! Below is a brief overview of the commands you can use.
+     
     COMMANDS OVERVIEW:
     "command" : "action" - Brief description of what the command does. 
     
