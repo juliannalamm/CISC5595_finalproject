@@ -166,7 +166,6 @@ function launchInteractive() {
           choices: [
           "Print our favorite poetry and excerpts",
           "List files", 
-          "Change directory",
           "Print working directory",
           "Get CPU Usage", 
           "Calculate expression",
@@ -182,16 +181,6 @@ function launchInteractive() {
               console.log(err ? chalk.red(err) : stdout);
               launchInteractive();
             });
-            break;
-
-          //CHANGE DIRECTORY
-          case "Change directory":
-            console.log("Use 'cd <dir>' to navigate directories");
-            launchInteractive();
-            break;
-          case "Print working directory":
-            console.log(process.cwd());
-            launchInteractive();
             break;
 
           // GET CPU USAGE
@@ -215,10 +204,7 @@ function launchInteractive() {
               console.log(chalk.green("\n=============================================\n"));
             }
             launchInteractive();
-            break;
-
-
-            
+            break; 
 
           // CALCULATE EXPRESSION 
           case "Calculate expression":
@@ -235,7 +221,7 @@ function launchInteractive() {
                 launchInteractive();
               });
             break;
-          //HELP
+            //HELP
           case "Help": // Display the CLI manual
           mycliManual();
           launchInteractive();
