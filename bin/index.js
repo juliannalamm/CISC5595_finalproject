@@ -25,6 +25,7 @@ select 'Exit' and type 'mycli <command>'
 You can always return to the interactive menu by typing 'mycli'!`));
 
 function mycliManual() {
+
   console.log(`
     Welcome to Moyo and Julianna's CLI! Below is a brief overview of the commands you can use.
      
@@ -173,6 +174,7 @@ function launchInteractive() {
           "Get CPU Usage",
           "Change directory", 
           "Calculate expression",
+          "Echo a message",
           "Help", 
           "Exit"],
         },
@@ -260,6 +262,31 @@ function launchInteractive() {
                 launchInteractive();
               });
             break;
+
+            //ECHO A MESSAGE
+            case "Echo a message":
+              inquirer
+                .prompt([
+                  { type: "input", name: "message", message: "Enter the message to echo:" },
+                  {
+                    type: "list",
+                    name: "transformation",
+                    message: "Select an option for the message:",
+                    choices: ["None", "Uppercase", "Reverse"],
+                  },
+                ])
+                .then((echoAnswers) => {
+                  let message = echoAnswers.message;
+                  const transformation = echoAnswers.transformation;
+  
+                  if (transformation === "Uppercase") message = message.toUpperCase();
+                  if (transformation === "Reverse") message = message.split("").reverse().join("");
+  
+                  console.log(chalk.cyan("Echoed Message:"), chalk.magentaBright(message));
+                  launchInteractive();
+                });
+              break;    
+
             //HELP
           case "Help": // Display the CLI manual
           mycliManual();
